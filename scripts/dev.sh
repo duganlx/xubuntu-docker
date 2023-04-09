@@ -136,11 +136,12 @@ cat << EOF
 EOF
 
 ############ git ssh ############
-read -p "是否配置'git ssh', 请输入(y/n): " op
-if [ "$op" == "y" ]; then
-    ssh-keygen -t rsa -C "840797783@qq.com"
-    echo "将 ~/.ssh/id_rsa.pub 拷贝到 github中的 'SSH and GPG keys' 中"
-fi
+# todo email改成输入形式
+# read -p "是否配置'git ssh', 请输入(y/n): " op
+# if [ "$op" == "y" ]; then
+#     ssh-keygen -t rsa -C "840797783@qq.com"
+#     echo "将 ~/.ssh/id_rsa.pub 拷贝到 github中的 'SSH and GPG keys' 中"
+# fi
 
 ############ python ############
 read -p "是否配置'python', 请输入(y/n): " op

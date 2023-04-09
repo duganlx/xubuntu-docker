@@ -90,3 +90,5 @@ RUN echo 'export PATH=$PATH':${DEVS_HOME_DIR}/.local/bin >> ${DEVS_BASHRC}
 RUN mkdir -p ${WORKSPACE_DIR}/py
 
 # js
+
+# java

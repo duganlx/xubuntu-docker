@@ -60,7 +60,6 @@ elif (( $op == 1 )); then
     echo -e "容器$container_name 创建完成，容器内的一些初始化工作，请按照以下命令执行\n"
     echo -e "\tdocker exec -it $container_name /bin/bash"
     echo -e "\tbash /download/scripts/main.sh"
-    echo -e "\n使用愉快^_^"
 
 elif (( $op == 2 )); then
     read -p "即将清理tag=none的镜像, 按回车键开始..."

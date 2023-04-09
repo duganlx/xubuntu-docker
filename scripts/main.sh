@@ -18,7 +18,7 @@ fi
 
 cat << EOF
 
-系统配置完成，接下来请执行如下命令进行开发配置
+ubuntu系统配置完成，接下来请执行如下命令进行开发配置
 
     su devs
     bash $SCRIPT_DIR/dev.sh
