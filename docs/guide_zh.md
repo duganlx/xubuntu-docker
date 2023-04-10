@@ -2,8 +2,8 @@
 
 ## 环境准备
 
-- ubuntu
-- docker
+- ubuntu（[WSL安装教程](https://learn.microsoft.com/zh-cn/windows/wsl/install)）
+- docker（[安装教程（Docker Engine）](https://docs.docker.com/engine/install/ubuntu/)）
 - sudo命令
 
 ## 配置步骤
@@ -11,6 +11,10 @@
 步骤1：切换成root用户（`su root`），并且进入到xubuntu-docker目录中（`cd xubuntu-docker`），给build.sh脚本添加执行权限（`chmod 775 build.sh`）。
 
 步骤2：执行build.sh脚本（`bash build.sh`），在操作指引中选择`0 [构建镜像]`。如果构建失败，九成九是网络问题，建议修改apt的下载使用清华源。
+
+- 提示：如果执行 build.sh脚本时出现错误`$'\r': command not found`，则需要执行如下命令
+    - 打开 build.sh脚本（`vim build.sh`），输入`:set ff=unix`并回车，接着输入`:wq`并回车
+    - 重新执行 build.sh脚本（`bash build.sh`）
 
 步骤3：镜像构建完成之后，再次执行build.sh脚本（`bash build.sh`），在操作指引中选择`1 [创建容器]`。
 
@@ -42,7 +46,7 @@
 
 步骤8：提示"是否配置处理 vim中文乱码问题"，输入`y`即可。
 
-步骤9：提示"是否配置 远程桌面控制"，输入`y`。在安装的过程中会需要选择国家`Country of origin for the keyboard`，选择`19`。接着需要选择键盘布局`Keyboard layout`，选择`1`。
+步骤9：提示"是否配置 远程桌面控制"，输入`y`。在安装的过程中会需要选择国家`Country of origin for the keyboard`，选择`19`。接着需要选择键盘布局`Keyboard layout`，选择`1`。（如果没有选择，也不用慌，实测不影响最终效果^_^）
 
 步骤10：提示"是否配置 中文输入法"，输入`y`。在安装的过程中会需要选择语言`Configuring locales`，将zh_CN开头的都选择上, 即 `489 490 491 492`。在选择默认语言`default locale`，选择zh_CN，即`3`
 
