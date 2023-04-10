@@ -64,4 +64,21 @@ Translations: [English](README.md) | [简体中文](README_zh.md)
 
 ## 开发说明
 
-todo 
+**文件说明**
+
+```text
+xubuntu-docker
+├── build.sh：操作指引脚本
+├── Dockerfile：所构建的镜像文件
+├── docs：文档
+│   └── guide_zh.md
+├── LICENSE
+├── README.md
+├── README_zh.md
+└── scripts：脚本文件
+    ├── dev.sh
+    ├── main.sh
+    └── sys.sh
+```
+
+提示：执行build.md脚本的构建容器时，会将scripts文件的内容复制到容器内部，scripts是需要手动执行的脚本。
