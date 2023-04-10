@@ -61,3 +61,15 @@
 ---
 
 到这里，所以配置就完成了，使用愉快 ^_^
+
+## 贴士
+
+1. 如果重启了docker，使用命令`docker start lvxws`启动容器（`lvxws`是容器名称），启动之后还不能直接使用ssh和远程桌面连接服务，需要先进入容器（`docker exec -it lvxws /bin/bash`），接着执行`service ssh restart`和`service xrdp restart`两条命令来启动ssh和远程桌面连接服务。（TODO 可做成脚本）
+
+2. 该系统中有两个角色，分别是root和devs。我的设想是root用户仅仅用于系统的管理，一般日常使用都是用devs用户。另外，root的默认密码为root，devs的默认密码是devs。建议初始化完成之后去修改密码（`passwd`）
+
+3. 远程桌面连接后，如果打开终端没有反应，可以执行以下步骤。首先，点击桌面左上角 application, 选择 settings, 再选择 settings manager。接着，在 Settings框内 选择 Default Applications, 并切换到 Utilities 选项卡。最后修改其中的File Manager 和 Terminal Emulator为`Thunar`和`Xfce Terminal`。
+
+4. 远程桌面连接后，如果在终端（terminal）上出现乱码问题，可以配置字符集为UTF-8，再重新打开终端。
+
+5. 远程桌面连接后，没有中文输入法的话，可以在桌面点击右键选择'应用applications', 选择 '系统', 再选择 'Fcitx' 在Input Method中搜索添加`Google拼音`。如果找不到，可以重启下该容器^_^

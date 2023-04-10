@@ -61,24 +61,6 @@ cat << EOF
 
 一些贴士：
 
-1. 可以修改 /etc/xrdp/xrdp.ini 文件中的 port=3389配置, 修改内容如下
-
-    port=tcp://:3389
-
-
-2. 如果不能打开终端, 则进行如下操作:
-    - 点击桌面左上角 application, 选择 settings, 再选择 settings manager
-    - 在 Settings框内 选择 Default Applications, 并切换到 Utilities 选项卡
-    - 修改其中的File Manager 和 Terminal Emulator, 如下所示
-
-        File Manager: Thunar
-        Terminal Emulator:  Xfce Terminal
-
-
-3. 如果重启docker容器, 需要进入容器, 配置 xrdp 服务启动, 命令如下
-
-    service xrdp restart
-
 EOF
 fi
 
@@ -94,16 +76,7 @@ if [ "$op" == "y" ]; then
     sudo dpkg-reconfigure locales
     sudo apt-get install -y fcitx fcitx-googlepinyin
 
-cat << EOF
-
-配置 "中文输入法" 已完成
-
-你可以在桌面点击右键选择'应用applications', 选择 '系统', 再选择 'Fcitx' 在Input Method中搜索添加拼音 标签如下
-
-    Google拼音
-
-如果找不到，请重启下该容器^_^
-EOF
+    echo -e "配置 "中文输入法" 已完成"
 fi
 
 ############ google chrome ############
@@ -113,9 +86,8 @@ cat << EOF
 
 配置"google chrome"
 
-步骤：
+步骤（需要在远程桌面连接后进行）：
 
-0. 在Dockerfile中已经安装
 1. 右键点击默认浏览器(下方), 点击 "Properties", 会弹出Launcher
 2. 点击 "Add New Item", 选中 Google Chrome
 3. 右键点击该创建的item, 点击 "Edit Item", 修改其中 Command 内容, 如下
@@ -124,16 +96,6 @@ cat << EOF
 
 EOF
 fi
-
-cat << EOF
-
-一些贴士
-
-1. 默认的root的密码为 root, devs 用户的密码为 devs, 请用如下命令修改密码
-
-    passwd <用户名>
-
-EOF
 
 ############ git ssh ############
 # todo email改成输入形式
@@ -144,7 +106,7 @@ EOF
 # fi
 
 ############ python ############
-read -p "是否配置'python', 请输入(y/n): " op
+read -p "是否配置'jupyter', 请输入(y/n): " op
 if [ "$op" == "y" ]; then
     conda init bash
     pip install jupyter
@@ -164,7 +126,7 @@ EOF
 fi
 
 ############ go ############
-read -p "是否配置'go', 请输入(y/n): " op
+read -p "是否配置'go的kratos框架开发环境', 请输入(y/n): " op
 if [ "$op" == "y" ]; then
     cd $DOWNLOAD_DIR
     wget https://github.com/protocolbuffers/protobuf/releases/download/v22.2/protoc-22.2-linux-x86_64.zip
