@@ -92,11 +92,10 @@ elif (( $op == 4 )); then
 
     read -p "请输入容器名称: " container_name
 
+    service docker start
     docker restart $container_name
-    echo -e "容器$container_name 重启完成，启动xrdp 和 ssh，请按照以下命令执行\n"
-    echo -e "\tdocker exec -it $container_name /bin/bash"
-    echo -e "\tservice xrdp restart"
-    echo -e "\tservice ssh restart"
+    docker exec $container_name service xrdp restart
+    docker exec $container_name service ssh restart
     echo -e "\n继续使用愉快^_^"
 else
     echo "未知操作, 结束"
